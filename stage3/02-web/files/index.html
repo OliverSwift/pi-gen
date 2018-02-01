@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <title>Promys</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<script src="scripts/platform.js"></script>
+  </head>
+  <body onload="platform()">
+
+    <header>
+      <nav>
+        <!--
+        <a class="navbar-brand" href="#">Carousel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+        </div>
+        -->
+      </nav>
+    </header>
+
+    <main>
+      <header>
+	    <h1>Promys</h1>
+	    <p>Simply cast your desktop screen to a Promys device.</p>
+      </header>
+      <menu id="platforms">
+        <menuitem class="platform" id="windows">
+          <img src="images/Windows.png" alt="Windows platform">
+          <h2>Windows</h2>
+          <p>Get the executable, double-click it. There you go.</p>
+          <a class="download" href="downloads/promys.exe" download>Download</a>
+        </menuitem>
+        <menuitem class="platform" id="macos">
+          <img src="images/Apple.png" alt="Apple platform">
+          <h2>macOS</h2>
+          <p>Get the DMG file. Open it, double click the application. You can also drag and drop it anywhere on your Mac.</p>
+          <a class="download" href="downloads/promys.dmg" download>Download</a>
+        </menuitem>
+        <menuitem class="platform" id="linux">
+          <img src="images/ubuntu.png" alt="Linux platform">
+          <h2>Ubuntu</h2>
+          <p>Get the deb package. Install it with:
+          <code><strong># sudo dpkg -i promys.deb</strong></code>
+          </p>
+          <a class="download" href="downloads/promys.deb" download>Download</a>
+        </menuitem>
+      </menu>
+    </main>
+  </body>
+</html>
