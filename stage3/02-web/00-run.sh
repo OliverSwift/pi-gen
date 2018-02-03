@@ -7,6 +7,11 @@ install -v -d ${ROOTFS_DIR}/var/www/html/styles/fonts
 
 install -m 644 files/index.html ${ROOTFS_DIR}/var/www/html
 
+mkdir -p files/downloads
+wget -O files/downloads/promys.deb http://promys.me/downloads/promys.deb
+wget -O files/downloads/promys.dmg http://promys.me/downloads/promys.dmg
+wget -O files/downloads/promys.exe http://promys.me/downloads/promys.exe
+
 install -m 644 files/downloads/promys.deb ${ROOTFS_DIR}/var/www/html/downloads/
 install -m 644 files/downloads/promys.dmg ${ROOTFS_DIR}/var/www/html/downloads/
 install -m 644 files/downloads/promys.exe ${ROOTFS_DIR}/var/www/html/downloads/
