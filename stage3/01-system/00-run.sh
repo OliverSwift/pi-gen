@@ -15,8 +15,11 @@ if (! grep wlan0 ${ROOTFS_DIR}/etc/dhcpcd.conf ) then
 fi
 
 # Give hostapd the conf file
-sed -i -e 's:#DAEMON_CONF="":DAEMON_CONF="/etc/hostapd/hostapd.conf":' ${ROOTFS_DIR}/etc/default/hostapd
+install -v -m 644 files/hostapd.conf  ${ROOTFS_DIR}/boot/wifi.cfg
+sed -i -e 's:#DAEMON_CONF="":DAEMON_CONF="/boot/wifi.cfg":' ${ROOTFS_DIR}/etc/default/hostapd
 
-# Make boot and root readonly
-sed -i -e '/^BOOTDEV/s:defaults:ro,defaults:' ${ROOTFS_DIR}/etc/fstab
+# Make root readonly
 sed -i -e '/^ROOTDEV/s:defaults:ro,defaults:' ${ROOTFS_DIR}/etc/fstab
+
+# Make lighttpd log errors in /var/run/lighttpd/error.log
+sed -i -e '/^server.errorlog/s:/var/log/:/var/run/:' ${ROOTFS_DIR}/etc/lighttpd/lighttpd.conf
