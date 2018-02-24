@@ -3,9 +3,11 @@
 install -v -d ${ROOTFS_DIR}/var/www/html/downloads
 install -v -d ${ROOTFS_DIR}/var/www/html/images
 install -v -d ${ROOTFS_DIR}/var/www/html/scripts
+install -v -d ${ROOTFS_DIR}/var/www/html/cgi-bin
 install -v -d ${ROOTFS_DIR}/var/www/html/styles/fonts
 
 install -m 644 files/index.html ${ROOTFS_DIR}/var/www/html
+install -m 644 files/settings.html ${ROOTFS_DIR}/var/www/html
 
 mkdir -p files/downloads
 wget -O files/downloads/promys.deb http://promys.me/downloads/promys.deb
@@ -26,3 +28,6 @@ install -m 644 files/scripts/platform.js ${ROOTFS_DIR}/var/www/html/scripts/plat
 install -m 644 files/styles/style.css    ${ROOTFS_DIR}/var/www/html/styles/style.css
 
 install -m 644 files/styles/fonts/Gruppo-Regular.ttf ${ROOTFS_DIR}/var/www/html/styles/fonts/Gruppo-Regular.ttf
+
+install -m 755 files/cgi-bin/status.cgi   ${ROOTFS_DIR}/var/www/html/cgi-bin/
+install -m 755 files/cgi-bin/apply.cgi    ${ROOTFS_DIR}/var/www/html/cgi-bin/

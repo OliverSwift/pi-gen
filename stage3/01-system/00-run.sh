@@ -18,8 +18,14 @@ fi
 install -v -m 644 files/hostapd.conf  ${ROOTFS_DIR}/boot/wifi.cfg
 sed -i -e 's:#DAEMON_CONF="":DAEMON_CONF="/boot/wifi.cfg":' ${ROOTFS_DIR}/etc/default/hostapd
 
+# Make boot readwrite for all
+sed -i -e '/^BOOTDEV/s:defaults:defaults,fmask=0000,dmask=0000:' ${ROOTFS_DIR}/etc/fstab
+
 # Make root readonly
-sed -i -e '/^ROOTDEV/s:defaults:ro,defaults:' ${ROOTFS_DIR}/etc/fstab
+sed -i -e '/^ROOTDEV/s:defaults:defaults,ro:' ${ROOTFS_DIR}/etc/fstab
 
 # Make lighttpd log errors in /var/run/lighttpd/error.log
 sed -i -e '/^server.errorlog/s:/var/log/:/var/run/:' ${ROOTFS_DIR}/etc/lighttpd/lighttpd.conf
+
+# Enable CGI
+ln -s ../conf-available/10-cgi.conf ${ROOTFS_DIR}/etc/lighttpd/conf-enabled/10-cgi.conf
