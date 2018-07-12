@@ -23,7 +23,7 @@ sed -i -e 's:#DAEMON_CONF="":DAEMON_CONF="/boot/wifi.cfg":' ${ROOTFS_DIR}/etc/de
 sed -i -e '/^BOOTDEV/s:defaults:defaults,fmask=0000,dmask=0000:' ${ROOTFS_DIR}/etc/fstab
 
 # Make root readonly
-sed -i -e '/^ROOTDEV/s:defaults:defaults,ro:' ${ROOTFS_DIR}/etc/fstab
+sed -i -e '/^ROOTDEV/s:defaults:defaults,ro,noload:' ${ROOTFS_DIR}/etc/fstab
 
 # Make lighttpd log errors in /var/run/lighttpd/error.log
 sed -i -e '/^server.errorlog/s:/var/log/:/var/run/:' ${ROOTFS_DIR}/etc/lighttpd/lighttpd.conf
